@@ -30,7 +30,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     }
 
     private Predicate<String> paths(){
-        return Predicates.or(PathSelectors.regex("/api/students.*"));
+        return Predicates.or(PathSelectors.regex("/api.*"));
     }
 
     private ApiInfo metaData() {

@@ -1,4 +1,4 @@
-package com.students.studentsApp.configurations;
+package com.students.studentsApp.configurations.Utils;
 
 import com.students.studentsApp.services.UserService;
 import lombok.extern.slf4j.Slf4j;

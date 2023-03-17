@@ -16,5 +16,8 @@ spring:
         default_schema: student
     show-sql: true
 
-
+student-app:
+  jwtCookieName: studentapp-secret-cookie-name
+  jwtSecret: studentappSecretKey
+  jwtExpirationMS: 1800000
 

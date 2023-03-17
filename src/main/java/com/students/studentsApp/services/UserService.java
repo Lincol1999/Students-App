@@ -1,7 +1,7 @@
 package com.students.studentsApp.services;
 
 import com.students.studentsApp.entities.User;
-import com.students.studentsApp.models.responses.UserModel;
+import com.students.studentsApp.models.UserModel;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService extends UserDetailsService {

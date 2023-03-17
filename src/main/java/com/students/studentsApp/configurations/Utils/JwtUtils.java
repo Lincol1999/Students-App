@@ -1,4 +1,4 @@
-package com.students.studentsApp.configurations;
+package com.students.studentsApp.configurations.Utils;
 
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;

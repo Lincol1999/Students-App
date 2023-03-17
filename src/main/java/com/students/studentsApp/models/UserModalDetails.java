@@ -1,4 +1,4 @@
-package com.students.studentsApp.models.responses;
+package com.students.studentsApp.models;
 
 import com.students.studentsApp.entities.User;
 import org.springframework.security.core.GrantedAuthority;

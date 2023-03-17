@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping(value = "")
     ResponseEntity<List<Student>> getStudents () {
 
@@ -44,6 +46,7 @@ public class StudentController {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping(value = "/{id}")
     ResponseEntity<Student> getStudentById (@PathVariable Integer id) {
         try{
@@ -62,6 +65,7 @@ public class StudentController {
         }
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(value = "")
     ResponseEntity<Student> createStudent(@RequestBody Student student){
         try{
@@ -74,6 +78,21 @@ public class StudentController {
         }
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PutMapping(value = "")
+    ResponseEntity<Student> updateStudent(@RequestBody Student student) {
+
+        try{
+            Student updateStudent = studentService.updateStudent(student);
+            log.info("Student {} update", student.getId());
+            return new ResponseEntity<>(updateStudent, HttpStatus.OK);
+        }catch (RuntimeException e) {
+            log.error("Error while updating student {}", student.getId());
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping(value = "/{id}")
     ResponseEntity<Boolean> deleteStudent (@PathVariable Integer id) {
         try{
@@ -86,6 +105,7 @@ public class StudentController {
         }
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(value = "/actives/{isActive}")
     ResponseEntity<List<Student>> getActiveStudents (@PathVariable boolean isActive) {
         try{

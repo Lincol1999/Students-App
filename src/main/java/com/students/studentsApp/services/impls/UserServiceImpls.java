@@ -2,8 +2,8 @@ package com.students.studentsApp.services.impls;
 
 import com.students.studentsApp.entities.Role;
 import com.students.studentsApp.entities.User;
-import com.students.studentsApp.models.responses.UserModalDetails;
-import com.students.studentsApp.models.responses.UserModel;
+import com.students.studentsApp.models.UserModalDetails;
+import com.students.studentsApp.models.UserModel;
 import com.students.studentsApp.repositories.RoleRepository;
 import com.students.studentsApp.repositories.UserRepository;
 import com.students.studentsApp.services.UserService;
@@ -13,7 +13,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 @Service
