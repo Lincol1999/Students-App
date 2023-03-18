@@ -82,6 +82,12 @@
 			<version>${jwt.version}</version>
 		</dependency>
 
+<!--		FLYWAY MIGRATION 	-->
+		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
 
 	</dependencies>
 
